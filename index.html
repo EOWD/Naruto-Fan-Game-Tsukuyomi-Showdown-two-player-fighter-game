@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <audio id="pain-start-audio">
+      <source src="./sounds/pain/almighty_push.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="naruto-start-audio">
+      <source
+        src="./sounds/naruto/ARE YOU LONELY OR SOMETHING - AUDIO FROM JAYUZUMI.COM.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="fight-theme">
+      <source
+        src="./sounds/theme/girei-pain_naruto-shippuden-gireipain-s-theme-song.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="naruto-damage">
+      <source
+        src="./sounds/naruto/HURT 01 - AUDIO FROM JAYUZUMI.COM.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="pain-damage">
+      <source
+        src="./sounds/pain/HURT 06 - AUDIO FROM JAYUZUMI.COM.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="running">
+      <source src="./sounds/naruto/running-sounds-6003.mp3" type="audio/mpeg" />
+    </audio>
+    <!--game start-->
+    <div id="Game-Start">
+      <div id="entro-screen"></div>
+      <div>
+        <img class="logo" src="./sprits/startscreen/Logo.png" alt="logo" />
+      </div>
+      <div id="players">
+        <div id="naruto" class="naruto-standing"></div>
+        <div>
+          <div id="player-info"></div>
+          <button class="start-button button">FIGHT</button>
+        </div>
+        <div id="pain" class="itachi-standing mirrored-sprite"></div>
+      </div>
+    </div>
+
+    <!--game-->
+    <div id="game-container">
+      <div class="health-time parent">
+        <!--player health-->
+        <div>
+          <img
+            class="portrait"
+            src="./sprits/portraits/naruto copy.png"
+            alt=""
+          />
+        </div>
+        <div class="parent-health mirrored-sprite">
+          <div class="full-health"></div>
+          <div class="player-health-motion health-player"></div>
+        </div>
+
+        <div id="timer">10</div>
+        <!--enemy health-->
+        <div class="parent-health">
+          <div class="full-health"></div>
+          <div class="enemy-health-motion health-enemy"></div>
+        </div>
+        <div>
+          <img class="portrait" src="./sprits/portraits/pain copy.png" alt="" />
+        </div>
+        <!--game screen-->
+      </div>
+      <div id="game-Screen"></div>
+    </div>
+
+    <!--Game Over-->
+    <div id="game-end">
+      <div class="container">
+      
+      <div>
+      <h1>Game over</h1>
+      <h2 id="winner"></h2>
+      <button class="restart-button button">Revenge</button>
+    </div>
+    <div class="winner-img"></div>
+    </div>
+  </div>
+    <script src="./JS/player.js"></script>
+
+    <script src="./JS/game.js"></script>
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
