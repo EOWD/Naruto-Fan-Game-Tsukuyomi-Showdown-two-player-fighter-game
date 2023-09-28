@@ -1,12 +1,23 @@
 window.onload = function () {
+  const playButton=document.querySelector(".play-button");
+  const controls=document.querySelector(".control-button");
+  const about=document.querySelector(".about-button");
+  const entroScreen=document.getElementById("entro-screen");
+  const startScreen=document.getElementById("Game-Start");
   const startButton = document.querySelector(".start-button");
   const restartButton = document.querySelector(".restart-button");
   const painStart = document.getElementById("pain");
   const narutoWin = document.getElementById("naruto");
   const body = document.body;
   const playerInfo = document.getElementById("player-info");
-  let game;
 
+
+  let game;
+playButton.addEventListener('click',()=>{
+entroScreen.style.display='none';
+startScreen.style.display='block'
+
+})
   startButton.addEventListener("click", function () {
     playAudio("fight-theme", true);
     if (!game) {
@@ -26,17 +37,26 @@ window.onload = function () {
   function restartGame() {
     location.reload();
   }
-  function playAudio(id, loop) {
+  function playAudio(id, loop, stop) {
     const audio = document.getElementById(id);
     if (audio) {
-      audio.loop = loop;
-      audio.currentTime = 0;
-      // audio.play();
+      if (stop) {
+        audio.pause(); 
+      } else {
+        audio.loop = loop;
+        audio.currentTime = 0;
+        audio.play();
+      }
     }
   }
-  playerInfo.style.textAlign = "left";
+  playerInfo.style.textAlign = "center";
+  playerInfo.style.marginBottom = "30%";
+  
+  playerInfo.style.display= "flex";
+  playerInfo.style.flexDirection= "row";
 
   painStart.addEventListener("mouseover", () => {
+    playerInfo.style.display='block'
     painStart.classList.add("super-move-pain");
 
     playAudio("pain-start-audio", false);
@@ -45,7 +65,7 @@ window.onload = function () {
       body.classList.add("shake");
 
       setTimeout(() => {
-        body.classList.remove("shake");
+        
         painStart.classList.add("itachi-standing");
         painStart.classList.remove("super-move-pain");
       }, 10000);
@@ -62,8 +82,9 @@ window.onload = function () {
     <h4>Pain is the guy who makes you wonder if he's having a mid-life ninja crisis. 💀✨</h4>
   `;
   });
-
+ 
   narutoWin.addEventListener("mouseover", () => {
+    playerInfo.style.display='block'
     playAudio("naruto-start-audio");
     narutoWin.classList.add("naruto-win");
 
@@ -84,4 +105,53 @@ window.onload = function () {
     <h4>Naruto is the ramen-loving ninja with dreams as big as his appetite! 🍥🍜</h4>
   `;
   });
+  narutoWin.addEventListener("mouseout",()=>{
+    playAudio("naruto-start-audio",false,stop);
+    playerInfo.style.display='none'
+    narutoWin.classList.remove("naruto-win");
+  })
+  painStart.addEventListener("mouseout",()=>{
+    playAudio("pain-start-audio", false, stop);
+    playerInfo.style.display='none'
+    painStart.classList.remove("super-move-pain");
+    body.classList.remove("shake");
+  })
+  controls.addEventListener('click',()=>{
+    playerInfo.style.display='block'
+    playerInfo.innerHTML = `
+    <div>
+    <h2>Player 1 Controls (The Hero):</h2>
+    <ul>
+    <li>W: Fly Like a Frog (Jump)</li>
+    <li>D: You're Late for Ramen (Move Right)</li>
+    <li>A: Glide Left (Move Left)</li>
+    <li>Space: Smack! Attack!</li>
+    </div>
+    <div>
+    <h2>Player 2 Controls (The Trickster):</h2>
+    <ul>
+    <li>↑: Hop to the Moon (Jump)</li>
+    <li>→: Dash Right (Move Right)</li>
+    <li>←: Moonwalk Left (Move Left)</li>
+    <li>Shift: Surprise Slap! Attack!</li>
+    </ul>
+    <h3>May your ramen dreams and Sharingan pranks come true! 🍜🌪️</h3>
+    </div>
+  `;
+  })
+  about.addEventListener('click',()=>{
+    playerInfo.style.width= "50vw";
+    playerInfo.style.display='flex'
+    playerInfo.style.marginBottom='1%'
+    playerInfo.innerHTML = `
+   
+   <p>Hey there, I'm Eiad, and this Naruto fan game is my very first project during my time at IronHack's 
+   web development bootcamp.
+    I've crafted this game with the power of HTML, JavaScript, and CSS, channeled from the Hidden Leaf Village to your screen! 
+    So, get ready to immerse yourself in the ninja world and let's embark on an epic adventure together! Believe it!
+    If you're as excited about ninja adventures as I am, let's join forces and turn this into an epic ninja saga! Check out the source code below or drop by our GitHub repository. 
+    🍥🌟🐉</p>
+  `;
+  })
+
 };

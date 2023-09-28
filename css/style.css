@@ -14,6 +14,8 @@ body {
 }
 
 #Game-Start {
+    margin-top: 10%;
+    display: none;
   width: 100vw;
   color: whitesmoke;
   position: absolute;
@@ -38,7 +40,10 @@ body {
   }
 }
 .player-info {
-  text-align: left;
+    text-align: left;
+   display: inline;
+    width: 50vw;
+    flex-direction: column;
 }
 #players {
   --glow-color: rgb(217, 176, 255);
@@ -48,7 +53,7 @@ body {
   border: 0.25em solid var(--glow-color);
   padding: 1em 3em;
   color: var(--glow-color);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   background-color: var(--btn-color);
   border-radius: 1em;
@@ -132,6 +137,8 @@ body {
   background-image: url(../sprits/baclground/sprite-background_night.png);
   background-repeat: no-repeat;
   overflow: hidden;
+  animation: run 1s steps(6) infinite; timing-function delay iteration-count direction fill-mode;
+
 }
 @keyframes run {
   100% {
@@ -466,4 +473,42 @@ body {
     0 0 4em 1em var(--glow-spread-color),
     inset 0 0 0.75em 0.25em var(--glow-color);
   text-shadow: 0 0 0.5em var(--glow-color);
+}
+#entro-screen{
+    margin-top: 15%;
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: 0.25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em 0.25em var(--glow-color),
+      0 0 4em 1em var(--glow-spread-color),
+      inset 0 0 0.75em 0.25em var(--glow-color);
+    text-shadow: 0 0 0.5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(5, 5, 5, 0.8);
+    
+  
+    width: 80vw;
+    color: rgb(245, 245, 245);
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+    animation: float 2s infinite;
+}
+.menu{
+    justify-content: space-around;
+    display: flex;
 }

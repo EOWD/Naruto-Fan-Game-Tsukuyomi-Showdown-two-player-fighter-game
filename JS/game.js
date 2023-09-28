@@ -10,7 +10,7 @@ class Game {
     this.winnerImg = document.querySelector(".winner-img");
     this.winner = "";
 
-    this.player = new player(
+    this.player = new sprite(
       this.element,
       this.gameScreen,
       {
@@ -30,7 +30,7 @@ class Game {
       "attack"
     );
 
-    this.enemy = new player(
+    this.enemy = new sprite(
       this.element,
       this.gameScreen,
       { x: 1100, y: 100 },
@@ -178,7 +178,7 @@ class Game {
         case "ArrowUp":
           this.enemy.velocity.y = -15;
           break;
-        case "e":
+        case " ":
           this.player.attack();
           break;
         case "Shift":

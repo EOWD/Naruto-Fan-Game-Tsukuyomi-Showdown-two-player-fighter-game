@@ -1,4 +1,4 @@
-class player {
+class sprite {
   constructor(
     element,
     gameScreen,
