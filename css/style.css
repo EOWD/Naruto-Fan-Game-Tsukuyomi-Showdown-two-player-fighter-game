@@ -319,7 +319,7 @@ body {
   height: 268px;
   background-image: url(../sprits/naruto/naruto\ attack.png);
   background-repeat: no-repeat;
-  animation: hit 1s steps(6) infinite;
+  animation: hit .5s steps(6) infinite;
 }
 @keyframes hit {
   100% {
@@ -518,8 +518,8 @@ body {
 }
 a{
     font-style: none;
-    color: red;
-    font-size: 40px;
+    color: wheat;
+    font-size: 30px;
     margin-bottom: 50px;
 }
 .restart-button{
@@ -527,5 +527,5 @@ a{
   }
   .start-button{
     color: white;
-    font-size: 25px;
+    font-size: 20px;
   }

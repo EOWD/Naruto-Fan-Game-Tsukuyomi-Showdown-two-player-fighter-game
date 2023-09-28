@@ -114,9 +114,9 @@ class Game {
 
     // Attack conditions
     if (this.player.checkAttackBoxCollisionWithSprite(this.enemy)) {
-      // setTimeout(() => {
+      setTimeout(() => {
       this.player.attackBox.isActive = false;
-      //}, 15);
+      }, 15);
       this.enemy.damageClass();
       this.enemy.health -= 2;
       this.enemyHealth.style.width = this.enemy.health + "%";
@@ -234,6 +234,7 @@ class Game {
   playAudio(id) {
     const audio = document.getElementById(id);
     if (audio) {
+      audio.volume=0.05
       audio.currentTime = 0;
       audio.play();
     }

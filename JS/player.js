@@ -86,7 +86,7 @@ class sprite {
     this.attackBox.isActive = true;
     setTimeout(() => {
       this.attackBox.isActive = false;
-    }, 1000);
+    }, 500);
   }
 
   update() {

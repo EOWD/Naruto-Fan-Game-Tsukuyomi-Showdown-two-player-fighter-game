@@ -16,10 +16,11 @@ window.onload = function () {
 playButton.addEventListener('click',()=>{
 entroScreen.style.display='none';
 startScreen.style.display='block'
-
+playAudio("fight-theme",0.05, true);
 })
+
   startButton.addEventListener("click", function () {
-    playAudio("fight-theme", true);
+    playAudio("fight-theme",0.1, true);
     if (!game) {
       console.log("start game");
       game = new Game();
@@ -37,12 +38,13 @@ startScreen.style.display='block'
   function restartGame() {
     location.reload();
   }
-  function playAudio(id, loop, stop) {
+  function playAudio(id,volume, loop, stop) {
     const audio = document.getElementById(id);
     if (audio) {
       if (stop) {
         audio.pause(); 
       } else {
+        audio.volume= volume
         audio.loop = loop;
         audio.currentTime = 0;
         audio.play();
@@ -59,7 +61,7 @@ startScreen.style.display='block'
     playerInfo.style.display='block'
     painStart.classList.add("super-move-pain");
 
-    playAudio("pain-start-audio", false);
+    playAudio("pain-start-audio",0.2, false);
 
     setTimeout(() => {
       body.classList.add("shake");
@@ -71,7 +73,7 @@ startScreen.style.display='block'
       }, 10000);
     }, 13000);
     playerInfo.innerHTML = `
-    <h2>Name: Pain (Nagato)</h2>
+    <h2>Player 2: Pain (Nagato)</h2>
     <h3>Clan:No clan, just a bunch of piercings</h3>
     <ul>
     <li>Almighty Push: Can clean his room by pushing everything away (and also destroy cities).</li>
@@ -85,7 +87,7 @@ startScreen.style.display='block'
  
   narutoWin.addEventListener("mouseover", () => {
     playerInfo.style.display='block'
-    playAudio("naruto-start-audio");
+    playAudio("naruto-start-audio",0.2);
     narutoWin.classList.add("naruto-win");
 
     setTimeout(() => {
@@ -94,7 +96,7 @@ startScreen.style.display='block'
     }, 4000);
 
     playerInfo.innerHTML = `
-    <h2>Name: Naruto Uzumaki</h2>
+    <h2>Player 1: Naruto Uzumaki</h2>
     <h3>Clan: Ramen Clan (self-proclaimed)</h3>
     <ul>
     <li>Shadow Clone Jutsu: Can make hundreds of copies of himself for epic pranks.</li>
@@ -106,12 +108,13 @@ startScreen.style.display='block'
   `;
   });
   narutoWin.addEventListener("mouseout",()=>{
-    playAudio("naruto-start-audio",false,stop);
+    playAudio("naruto-start-audio",0.1,false,stop);
     playerInfo.style.display='none'
     narutoWin.classList.remove("naruto-win");
+    body.classList.remove("shake");
   })
   painStart.addEventListener("mouseout",()=>{
-    playAudio("pain-start-audio", false, stop);
+    playAudio("pain-start-audio",0.1, false, stop);
     playerInfo.style.display='none'
     painStart.classList.remove("super-move-pain");
     body.classList.remove("shake");
