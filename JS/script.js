@@ -1,9 +1,9 @@
 window.onload = function () {
-  const playButton=document.querySelector(".play-button");
-  const controls=document.querySelector(".control-button");
-  const about=document.querySelector(".about-button");
-  const entroScreen=document.getElementById("entro-screen");
-  const startScreen=document.getElementById("Game-Start");
+  const playButton = document.querySelector(".play-button");
+  const controls = document.querySelector(".control-button");
+  const about = document.querySelector(".about-button");
+  const entroScreen = document.getElementById("entro-screen");
+  const startScreen = document.getElementById("Game-Start");
   const startButton = document.querySelector(".start-button");
   const restartButton = document.querySelector(".restart-button");
   const painStart = document.getElementById("pain");
@@ -11,16 +11,15 @@ window.onload = function () {
   const body = document.body;
   const playerInfo = document.getElementById("player-info");
 
-
   let game;
-playButton.addEventListener('click',()=>{
-entroScreen.style.display='none';
-startScreen.style.display='block'
-playAudio("fight-theme",0.05, true);
-})
+  playButton.addEventListener("click", () => {
+    entroScreen.style.display = "none";
+    startScreen.style.display = "block";
+    playAudio("fight-theme", 0.05, true);
+  });
 
   startButton.addEventListener("click", function () {
-    playAudio("fight-theme",0.1, true);
+    playAudio("fight-theme", 0.1, true);
     if (!game) {
       console.log("start game");
       game = new Game();
@@ -38,13 +37,13 @@ playAudio("fight-theme",0.05, true);
   function restartGame() {
     location.reload();
   }
-  function playAudio(id,volume, loop, stop) {
+  function playAudio(id, volume, loop, stop) {
     const audio = document.getElementById(id);
     if (audio) {
       if (stop) {
-        audio.pause(); 
+        audio.pause();
       } else {
-        audio.volume= volume
+        audio.volume = volume;
         audio.loop = loop;
         audio.currentTime = 0;
         audio.play();
@@ -53,25 +52,27 @@ playAudio("fight-theme",0.05, true);
   }
   playerInfo.style.textAlign = "center";
   //playerInfo.style.marginBottom = "30%";
-  
-  playerInfo.style.display= "flex";
-  playerInfo.style.flexDirection= "column";
 
+  playerInfo.style.display = "flex";
+  playerInfo.style.flexDirection = "column";
+
+  //mouseover
   painStart.addEventListener("mouseover", () => {
-    playerInfo.style.display='block'
+    playerInfo.style.display = "block";
     painStart.classList.add("super-move-pain");
 
-    playAudio("pain-start-audio",0.2, false);
+    playAudio("pain-start-audio", 0.2, false);
 
     setTimeout(() => {
       body.classList.add("shake");
 
       setTimeout(() => {
-        
         painStart.classList.add("itachi-standing");
         painStart.classList.remove("super-move-pain");
+        
       }, 10000);
     }, 13000);
+
     playerInfo.innerHTML = `
     <h2>Player 2: Pain (Nagato)</h2>
     <h3>Clan:No clan, just a bunch of piercings</h3>
@@ -84,10 +85,10 @@ playAudio("fight-theme",0.05, true);
     <h4>Pain is the guy who makes you wonder if he's having a mid-life ninja crisis. 💀✨</h4>
   `;
   });
- 
+
   narutoWin.addEventListener("mouseover", () => {
-    playerInfo.style.display='block'
-    playAudio("naruto-start-audio",0.2);
+    playerInfo.style.display = "block";
+    playAudio("naruto-start-audio", 0.2);
     narutoWin.classList.add("naruto-win");
 
     setTimeout(() => {
@@ -107,20 +108,26 @@ playAudio("fight-theme",0.05, true);
     <h4>Naruto is the ramen-loving ninja with dreams as big as his appetite! 🍥🍜</h4>
   `;
   });
-  narutoWin.addEventListener("mouseout",()=>{
-    playAudio("naruto-start-audio",0.1,false,stop);
-    playerInfo.style.display='none'
+
+
+
+  //mouse out 
+  narutoWin.addEventListener("mouseout", () => {
+    playAudio("naruto-start-audio", 0.1, false, stop);
+    playerInfo.style.display = "none";
     narutoWin.classList.remove("naruto-win");
     body.classList.remove("shake");
-  })
-  painStart.addEventListener("mouseout",()=>{
-    playAudio("pain-start-audio",0.1, false, stop);
-    playerInfo.style.display='none'
+  });
+
+  
+  painStart.addEventListener("mouseout", () => {
+    playAudio("pain-start-audio", 0.1, false, stop);
+    playerInfo.style.display = "none";
     painStart.classList.remove("super-move-pain");
     body.classList.remove("shake");
-  })
-  controls.addEventListener('click',()=>{
-    playerInfo.style.display='block'
+  });
+  controls.addEventListener("click", () => {
+    playerInfo.style.display = "block";
     playerInfo.innerHTML = `
     <div>
     <h2>Player 1 Controls (The Hero):</h2>
@@ -141,22 +148,21 @@ playAudio("fight-theme",0.05, true);
     <h3>May your ramen dreams and Sharingan pranks come true! 🍜🌪️</h3>
     </div>
   `;
-  })
-  about.addEventListener('click',()=>{
-    playerInfo.style.width= "50vw";
-    playerInfo.style.display='flex'
-    playerInfo.style.marginBottom='1%'
+  });
+  about.addEventListener("click", () => {
+    playerInfo.style.width = "50vw";
+    playerInfo.style.display = "flex";
+    playerInfo.style.marginBottom = "1%";
     playerInfo.innerHTML = `
    
    <p>Hey there, I'm Eiad, and this Naruto fan game is my very first project during my time at IronHack's 
    web development bootcamp.
     I've crafted this game with the power of HTML, JavaScript, and CSS, channeled from the Hidden Leaf Village to your screen! 
     So, get ready to immerse yourself in the ninja world and let's embark on an epic adventure together! Believe it!
-    If you're as excited about ninja adventures as I am, let's join forces and turn this into an epic ninja saga! Check out the source code below or drop by our GitHub repository. 
+    If you're as excited about ninja adventures as I am, let's join forces and turn this into an epic ninja saga! Drop by my GitHub repository, shadow clone it. 
     🍥🌟🐉
      </p>
      <strong><a href="https://github.com/EOWD/project1--two-player-fighter-game.git">Git Hub</a></strong>
   `;
-  })
-
+  });
 };
