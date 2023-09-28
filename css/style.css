@@ -5,11 +5,13 @@
   font-family: "VT323", monospace;
 }
 body {
+    width: 100vw;
+    height: 100vh;
   background-color: black;
   background-image: url(../sprits/startscreen/clans.jpg);
+  
   padding: 0;
   text-align: center;
-
   overflow: hidden;
 }
 
@@ -17,6 +19,7 @@ body {
     margin-top: 10%;
     display: none;
   width: 100vw;
+  height: 100vh;
   color: whitesmoke;
   position: absolute;
 
@@ -41,9 +44,8 @@ body {
 }
 .player-info {
     text-align: left;
-   display: inline;
-    width: 50vw;
-    flex-direction: column;
+   
+   
 }
 #players {
   --glow-color: rgb(217, 176, 255);
@@ -97,6 +99,7 @@ body {
   text-shadow: 0 0 0.5em var(--glow-color);
   position: relative;
   transition: all 0.3s;
+  margin-top: 5%;
 }
 
 .button::after {
@@ -136,13 +139,14 @@ body {
   height: 700px;
   background-image: url(../sprits/baclground/sprite-background_night.png);
   background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
-  animation: run 1s steps(6) infinite; timing-function delay iteration-count direction fill-mode;
+  animation: run 1s steps(6) infinite;
 
 }
 @keyframes run {
   100% {
-    background-position: -8460px 0;
+    background-position: -8670px 0;
   }
 }
 
@@ -512,3 +516,16 @@ body {
     justify-content: space-around;
     display: flex;
 }
+a{
+    font-style: none;
+    color: red;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.restart-button{
+    margin-bottom: 5%;
+  }
+  .start-button{
+    color: white;
+    font-size: 25px;
+  }

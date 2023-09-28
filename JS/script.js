@@ -50,10 +50,10 @@ startScreen.style.display='block'
     }
   }
   playerInfo.style.textAlign = "center";
-  playerInfo.style.marginBottom = "30%";
+  //playerInfo.style.marginBottom = "30%";
   
   playerInfo.style.display= "flex";
-  playerInfo.style.flexDirection= "row";
+  playerInfo.style.flexDirection= "column";
 
   painStart.addEventListener("mouseover", () => {
     playerInfo.style.display='block'
@@ -150,7 +150,9 @@ startScreen.style.display='block'
     I've crafted this game with the power of HTML, JavaScript, and CSS, channeled from the Hidden Leaf Village to your screen! 
     So, get ready to immerse yourself in the ninja world and let's embark on an epic adventure together! Believe it!
     If you're as excited about ninja adventures as I am, let's join forces and turn this into an epic ninja saga! Check out the source code below or drop by our GitHub repository. 
-    🍥🌟🐉</p>
+    🍥🌟🐉
+     </p>
+     <strong><a href="https://github.com/EOWD/project1--two-player-fighter-game.git">Git Hub</a></strong>
   `;
   })
 
