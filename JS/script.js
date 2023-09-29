@@ -69,7 +69,6 @@ window.onload = function () {
       setTimeout(() => {
         painStart.classList.add("itachi-standing");
         painStart.classList.remove("super-move-pain");
-        
       }, 10000);
     }, 13000);
 
@@ -109,9 +108,7 @@ window.onload = function () {
   `;
   });
 
-
-
-  //mouse out 
+  //mouse out
   narutoWin.addEventListener("mouseout", () => {
     playAudio("naruto-start-audio", 0.1, false, stop);
     playerInfo.style.display = "none";
@@ -119,7 +116,6 @@ window.onload = function () {
     body.classList.remove("shake");
   });
 
-  
   painStart.addEventListener("mouseout", () => {
     playAudio("pain-start-audio", 0.1, false, stop);
     playerInfo.style.display = "none";
@@ -127,8 +123,24 @@ window.onload = function () {
     body.classList.remove("shake");
   });
   controls.addEventListener("click", () => {
+    playerInfo.style.width = "50vw";
+    playerInfo.style.display = "flex";
+    playerInfo.style.marginBottom = "1%";
     playerInfo.style.display = "block";
     playerInfo.innerHTML = `
+   
+    <p>"Alright, rookie ninja, listen up! This game is all about saving the world from the ultimate Tsukuyomi. The countdown is on, and if we don't defeat Pain in five minutes, it's lights out for the whole world! No pressure, right?
+
+    But here's the twist - if your health drops to a measly 20%, you're in for a wild ride. You'll be hit with a genjutsu so powerful, you'll turn into a frog! 🐸 Ribbit! And guess what? You'll start feeling the gravitational pull, either to the left or to the right. It's like doing the ninja moonwalk, but more amphibious!
+    
+    Don't worry; you'll know when you're in the genjutsu. Everything will get all wobbly and trippy. So, sharpen your kunai, practice your jutsu, and let's save the world in the most frog-tastic way possible! Time to hop to it, ninja!" 🍥🐸🌟
+      </p>
+     
+      <button class="how-button button">CONTROLLERS</button>
+   `;
+    const how = document.querySelector(".how-button");
+    how.addEventListener("click", () => {
+      playerInfo.innerHTML = `
     <div>
     <h2>Player 1 Controls (The Hero):</h2>
     <ul>
@@ -146,9 +158,12 @@ window.onload = function () {
     <li>Shift: Surprise Slap! Attack!</li>
     </ul>
     <h3>May your ramen dreams and Sharingan pranks come true! 🍜🌪️</h3>
+    
     </div>
   `;
+    });
   });
+
   about.addEventListener("click", () => {
     playerInfo.style.width = "50vw";
     playerInfo.style.display = "flex";

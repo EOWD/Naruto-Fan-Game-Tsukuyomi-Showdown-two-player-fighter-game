@@ -22,6 +22,7 @@ class sprite {
     this.runningClass = runningClass;
     this.damage = damage;
     this.attackclass = attackclass;
+    this.frogMode = false;
 
     this.element = document.createElement("div");
     //this.element.src = imgSrc;
@@ -49,7 +50,6 @@ class sprite {
     this.attackBoxImg.style.width = "50px";
 
     this.attackBoxImg.style.height = "50px";
-    //this.attackBoxImg.style.backgroundColor = "red";
 
     this.attackBoxImg.style.display = "none";
     this.attackBoxImg.style.backgroundRepeat = "no-repeat";
@@ -185,19 +185,19 @@ class sprite {
     if (this.element.classList.contains(className)) {
       this.element.style.width = newWidth + "px";
     } else {
-      // If the class is not present, revert to the original width
       this.element.style.width = this.width + "px";
     }
   }
   damageClass() {
-    // Add the damage class
     this.element.classList.add(this.damage);
 
-    // Remove multiple classes individually
-
     setTimeout(() => {
-      // Remove the damage class after a delay
       this.element.classList.remove(this.damage);
     }, 500);
+  }
+
+  frog(frogClass) {
+    this.element.classList.remove();
+    this.element.classList.add(frogClass);
   }
 }

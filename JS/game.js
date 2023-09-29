@@ -91,34 +91,46 @@ class Game {
     this.player.attackChangeClass();
     this.enemy.attackChangeClass();
 
+    //
     this.player.velocity.x = 0;
     this.enemy.velocity.x = 0;
+
+    if (this.player.health <= 20) {
+      this.player.frog("naruto-frog");
+      this.player.velocity.x = -20;
+    }
+    if (this.enemy.health <= 20) {
+      this.enemy.frog("pain-frog");
+
+      this.enemy.velocity.x = 20;
+    }
+
     if (this.keys.a.pressed && this.player.lastKey === "a") {
-      this.player.velocity.x = -5;
+      this.player.velocity.x = -7;
       this.player.running();
     } else if (this.keys.d.pressed && this.player.lastKey === "d") {
-      this.player.velocity.x = 5;
+      this.player.velocity.x = 7;
       this.player.running();
     }
 
     if (this.keys.ArrowRight.pressed && this.enemy.lastKey === "ArrowRight") {
-      this.enemy.velocity.x = 5;
+      this.enemy.velocity.x = 7;
       this.enemy.running();
     } else if (
       this.keys.ArrowLeft.pressed &&
       this.enemy.lastKey === "ArrowLeft"
     ) {
-      this.enemy.velocity.x = -5;
+      this.enemy.velocity.x = -7;
       this.enemy.running();
     }
 
     // Attack conditions
     if (this.player.checkAttackBoxCollisionWithSprite(this.enemy)) {
       setTimeout(() => {
-      this.player.attackBox.isActive = false;
+        this.player.attackBox.isActive = false;
       }, 15);
       this.enemy.damageClass();
-      this.enemy.health -= 2;
+      this.enemy.health -= 5;
       this.enemyHealth.style.width = this.enemy.health + "%";
       this.playAudio("pain-damage");
       console.log("Player attacked enemy");
@@ -129,7 +141,7 @@ class Game {
       this.enemy.attackBox.isActive = false;
       //}, 15);
       this.player.damageClass();
-      this.player.health -= 2;
+      this.player.health -= 5;
       this.playerHealth.style.width = this.player.health + "%";
       this.playAudio("naruto-damage");
       console.log("Enemy attacked player");
@@ -140,9 +152,16 @@ class Game {
     this.player.mirrorBasedOnPlayerPosition(this.enemy.position.x);
 
     // end if player is dead
-    if (this.player.health <= 0 || this.enemy.health <= 0) {
+    if (this.player.health <= 0) {
       this.gameEnd();
+      // this.player.changeWidthIfClassExists("naruto-finished", 241);
+      this.player.frog("naruto-finished");
+    } else if (this.enemy.health <= 0) {
+      this.gameEnd();
+      this.enemy.changeWidthIfClassExists("pain-finished", 229);
+      this.enemy.frog("pain-finished");
     }
+
     this.player.changeWidthIfClassExists("naruto-hit", 262);
   }
 
@@ -185,7 +204,7 @@ class Game {
           this.enemy.attack();
           break;
       }
-      console.log(event.key);
+      //console.log(event.key);
     });
 
     window.addEventListener("keyup", (event) => {
@@ -214,27 +233,31 @@ class Game {
       console.log(event.key);
     });
   }
+  //end-----------
 
   gameEnd() {
-    if (this.player.health <= 0 || this.enemy.health <= 0) {
-      this.gameContainer.style.display = "none";
-      this.gameOver.style.display = "block";
-      // console.log(this.winner);
-      document.querySelector("#winner").innerHTML = this.winner;
-      return;
-    } else if (this.time === 0) {
-      if (this.gameContainer) {
+    setTimeout(() => {
+      if (this.player.health <= 0 || this.enemy.health <= 0) {
         this.gameContainer.style.display = "none";
         this.gameOver.style.display = "block";
+
         // console.log(this.winner);
         document.querySelector("#winner").innerHTML = this.winner;
+        return;
+      } else if (this.time === 0) {
+        if (this.gameContainer) {
+          this.gameContainer.style.display = "none";
+          this.gameOver.style.display = "block";
+          // console.log(this.winner);
+          document.querySelector("#winner").innerHTML = this.winner;
+        }
       }
-    }
+    }, 3000);
   }
   playAudio(id) {
     const audio = document.getElementById(id);
     if (audio) {
-      audio.volume=0.05
+      audio.volume = 0.05;
       audio.currentTime = 0;
       audio.play();
     }

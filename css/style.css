@@ -5,19 +5,19 @@
   font-family: "VT323", monospace;
 }
 body {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: black;
   background-image: url(../sprits/startscreen/clans.jpg);
-  
+
   padding: 0;
   text-align: center;
   overflow: hidden;
 }
 
 #Game-Start {
-    margin-top: 10%;
-    display: none;
+  margin-top: 10%;
+  display: none;
   width: 100vw;
   height: 100vh;
   color: whitesmoke;
@@ -43,9 +43,7 @@ body {
   }
 }
 .player-info {
-    text-align: left;
-   
-   
+  text-align: left;
 }
 #players {
   --glow-color: rgb(217, 176, 255);
@@ -142,7 +140,6 @@ body {
   background-size: cover;
   overflow: hidden;
   animation: run 1s steps(6) infinite;
-
 }
 @keyframes run {
   100% {
@@ -319,7 +316,7 @@ body {
   height: 268px;
   background-image: url(../sprits/naruto/naruto\ attack.png);
   background-repeat: no-repeat;
-  animation: hit .5s steps(6) infinite;
+  animation: hit 0.5s steps(6) infinite;
 }
 @keyframes hit {
   100% {
@@ -478,54 +475,102 @@ body {
     inset 0 0 0.75em 0.25em var(--glow-color);
   text-shadow: 0 0 0.5em var(--glow-color);
 }
-#entro-screen{
-    margin-top: 15%;
-    --glow-color: rgb(217, 176, 255);
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(100, 61, 136);
-    border: 0.25em solid var(--glow-color);
-    padding: 1em 3em;
-    color: var(--glow-color);
-    font-size: 18px;
-    font-weight: bold;
-    background-color: var(--btn-color);
-    border-radius: 1em;
-    outline: none;
-    box-shadow: 0 0 1em 0.25em var(--glow-color),
-      0 0 4em 1em var(--glow-spread-color),
-      inset 0 0 0.75em 0.25em var(--glow-color);
-    text-shadow: 0 0 0.5em var(--glow-color);
-    position: relative;
-    transition: all 0.3s;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(5, 5, 5, 0.8);
-    
-  
-    width: 80vw;
-    color: rgb(245, 245, 245);
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-   
-    animation: float 2s infinite;
+#entro-screen {
+  margin-top: 15%;
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: 0.25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(5, 5, 5, 0.8);
+
+  width: 80vw;
+  color: rgb(245, 245, 245);
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  animation: float 2s infinite;
 }
-.menu{
-    justify-content: space-around;
-    display: flex;
+.menu {
+  justify-content: space-around;
+  display: flex;
 }
-a{
-    font-style: none;
-    color: wheat;
-    font-size: 30px;
-    margin-bottom: 50px;
+a {
+  font-style: none;
+  color: wheat;
+  font-size: 30px;
+  margin-bottom: 50px;
 }
-.restart-button{
-    margin-bottom: 5%;
+.restart-button {
+  margin-bottom: 5%;
+}
+.start-button {
+  color: white;
+  font-size: 20px;
+}
+.naruto-frog {
+  width: 200px;
+  height: 268px;
+  background-image: url(../sprits/naruto/frog.png);
+  animation: frog 1s steps(4) infinite;
+}
+
+@keyframes frog {
+  100% {
+    background-position: -806px, 0;
   }
-  .start-button{
-    color: white;
-    font-size: 20px;
+}
+.pain-frog {
+  width: 200px;
+  height: 268px;
+  background-image: url(../sprits/naruto/frog-pain.png);
+  animation: frog 1s steps(4) infinite;
+}
+
+@keyframes frog {
+  100% {
+    background-position: -806px, 0;
   }
+}
+
+.naruto-finished {
+  width: 200px;
+  height: 268px;
+  background-image: url(../sprits/naruto/naruto-dying\ copy.png);
+  animation: naruto-dying 3s steps(5) infinite;
+}
+
+@keyframes naruto-dying {
+  100% {
+    background-position: -1207px, 0;
+  }
+}
+.pain-finished {
+  width: 200px;
+  height: 268px;
+  background-image: url(../sprits/Pain/pain-dying.png);
+  animation: pain-dying 3s steps(4) infinite;
+}
+
+@keyframes pain-dying {
+  100% {
+    background-position: -981px, 0;
+  }
+}
