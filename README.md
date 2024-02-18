@@ -36,7 +36,8 @@ Got ideas to make this ninja saga even more epic? Your contributions are welcome
 
 ## Feedback
 
-I love hearing from fellow Naruto fans and gamers! If you have any suggestions, feedback, or just want to talk about the game, feel free to drop me a line at [contact@eiad.com](mailto:contact@eiad.com).
+I love hearing from fellow Naruto fans and gamers! If you have any suggestions, feedback, or just want to talk about the game, feel free to drop me a line at [contact@eiad.com](mailto:eo.code.wd@gmail.com
+).
 
 ## License
 
